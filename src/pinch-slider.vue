@@ -126,7 +126,7 @@
         name: 'pinch-slider',
         props: {
             'slides':Array,
-            'srcAtr':
+            'srcKey':
             {
                 type: String,
                 default: 'src'
@@ -218,11 +218,11 @@
                     this.slidesDoms.map((child,index) => {
                         var $img = child.childNodes[0];
                         if(!this.lazyLoad){
-                            $img.setAttribute('src', this.slides[index][this.srcAtr]);
+                            $img.setAttribute('src', this.slides[index][this.srcKey]);
                         }else{
                             allLoaded = false;
                             if(!$img.getAttribute('src') && this.currentIndex - 1 <= index && this.currentIndex +  1 >= index){
-                                $img.setAttribute('src', this.slides[index][this.srcAtr]);
+                                $img.setAttribute('src', this.slides[index][this.srcKey]);
                             }
                         }
                     });

@@ -20,7 +20,7 @@
         left: 0;
     }
     
-    .ps-full-mode-slider .ps-img-wrapper img {
+    .full-mode .ps-img-wrapper img {
         -o-object-fit: contain;
         object-fit: contain;
         height: auto;
@@ -35,7 +35,7 @@
             </pinch-slider>
         </div>
         <div class="full-screen" v-show='isFull' @click='isFull=false'>
-            <pinch-slider :slides="imgs" class="ps-full-mode-slider" :current-index="currentIndex" @on-slide-change="changePageNo">
+            <pinch-slider :slides="imgs" class="full-mode" :current-index="currentIndex" @on-slide-change="changePageNo">
             </pinch-slider>
         </div>
     </div>
