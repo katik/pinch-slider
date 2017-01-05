@@ -53,10 +53,10 @@ new Vue({
         isFull:false
     },
     methods:{
-      showFull(){
+      showFull() {
         this.isFull = true;
       },
-      changePageNo: function (data) {
+      changePageNo(data) {
             this.currentIndex = data.index;
         }
     }
