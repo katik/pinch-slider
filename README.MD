@@ -1,6 +1,6 @@
 # Overview
 
-pinch-slider is a touch slider for which can be zoomed or pinched vue.js.
+pinch-slider is a touch slider for which can be zoomed or pinched for vue.js.
 
 # Install
 
@@ -38,15 +38,28 @@ Vue.component('pinch-slider', PinchSlider);
 ```
 
 ```JavaScript
-const vueSwipe = VueSwipe.Swipe;
-const vueSwipeItem = VueSwipe.SwipeItem;
+const pinchSlider = PinchSlider.PinchSlider;
 
+Vue.component('pinchSlider', pinchSlider);
 new Vue({
-  el: 'body',
-  components: {
-    'swipe': vueSwipe,
-    'swipe-item': vueSwipeItem
-  }
+    el: '.vue-wrapper',
+    data: {
+        imgs: [
+            { src: 'https://cdn.pixabay.com/photo/2016/11/07/05/13/map-1804891__480.jpg' },
+            { src: 'https://cdn.pixabay.com/photo/2016/12/09/08/09/texture-1893788__480.jpg' },
+            {src:'https://cdn.pixabay.com/photo/2016/10/20/18/35/sunrise-1756274__480.jpg'}
+        ],
+        currentIndex: 0,
+        isFull:false
+    },
+    methods:{
+      showFull(){
+        this.isFull = true;
+      },
+      changePageNo: function (data) {
+            this.currentIndex = data.index;
+        }
+    }
 });
 ```
 
