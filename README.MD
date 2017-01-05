@@ -102,5 +102,9 @@ Here list Props and events on the component
 ```bash
 $ npm run build
 ```
+
+# Many thanks to 
+[AlloyFinger](https://github.com/AlloyTeam/AlloyFinger)
+
 # License
 MIT
