@@ -84,7 +84,7 @@ Work on a Vue instance:
 
 # Options
 
-Here list Props on swipe component
+Here list Props on the component
 
 | Option | Description |
 | ----- | ----- |
