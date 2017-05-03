@@ -1,8 +1,8 @@
 {
   "name": "pinch-slider",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "a slider for images which can be zoomed or pinched",
-  "main": "index.js",
+  "main": "dist/pinchSlider.min.js",
   "scripts": {
     "dev": "webpack-dev-server --devtool eval-source-map --progress --colors --hot --inline --config ./webpack.dev.config.js",
     "build": "webpack -p --config ./webpack.dev.config.js --debug",

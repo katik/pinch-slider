@@ -1,4 +1,8 @@
 const pinchSlider = PinchSlider.PinchSlider;
+const AlloyFingerVue = PinchSlider.AlloyFingerVue;
+const AlloyFinger = PinchSlider.AlloyFinger;
+
+Vue.use(AlloyFingerVue,{ AlloyFinger: AlloyFinger }); // use AlloyFinger's plugin
 
 Vue.component('pinchSlider', pinchSlider);
 new Vue({

@@ -15,10 +15,11 @@ Import components to your project:
 require('pinch-slider/dist/pinch-slider.css');
 
 // in ES6 modules
-import { PinchSlider } from 'pinch-slider';
+import { PinchSlider, AlloyFinger, AlloyFingerVue } from 'pinch-slider';
+Vue.use( AlloyFingerVue, { AlloyFinger: AlloyFinger }); // use AlloyFinger's plugin
 
 // in CommonJS
-const { PinchSlider } = require('pinch-slider');
+const { PinchSlider, AlloyFinger, AlloyFingerVue } = require('pinch-slider');
 
 // in Global variable
 const { PinchSlider } = PinchSlider;

@@ -56,13 +56,9 @@
 </template>
 
 <script type="text/javascript">
-
-    import AlloyFinger from './alloy_finger.js';
-    import AlloyFingerVue from './alloy_finger.vue.js';
     import To from './To.js';
-
+    
     //component begin
-    Vue.use(AlloyFingerVue,{ AlloyFinger: AlloyFinger }); // use AlloyFinger's plugin
 
     export default {
         name: 'pinch-slider',
