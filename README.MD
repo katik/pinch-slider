@@ -16,18 +16,18 @@ require('pinch-slider/dist/pinch-slider.css');
 
 // in ES6 modules
 import { PinchSlider, AlloyFinger, AlloyFingerVue } from 'pinch-slider';
-Vue.use( AlloyFingerVue, { AlloyFinger: AlloyFinger }); // use AlloyFinger's plugin
 
 // in CommonJS
 const { PinchSlider, AlloyFinger, AlloyFingerVue } = require('pinch-slider');
 
 // in Global variable
-const { PinchSlider } = PinchSlider;
+const { PinchSlider, AlloyFinger, AlloyFingerVue } = PinchSlider;
 ```
 
 And register components:
 
 ```javascript
+Vue.use( AlloyFingerVue, { AlloyFinger: AlloyFinger }); // use AlloyFinger's plugin
 Vue.component('pinch-slider', PinchSlider);
 ```
 
@@ -39,9 +39,10 @@ Vue.component('pinch-slider', PinchSlider);
 ```
 
 ```JavaScript
-const pinchSlider = PinchSlider.PinchSlider;
+const { PinchSlider, AlloyFinger, AlloyFingerVue } = PinchSlider;
+Vue.use( AlloyFingerVue, { AlloyFinger: AlloyFinger }); // use AlloyFinger's plugin
 
-Vue.component('pinchSlider', pinchSlider);
+Vue.component('pinchSlider', PinchSlider);
 new Vue({
     el: '.vue-wrapper',
     data: {
