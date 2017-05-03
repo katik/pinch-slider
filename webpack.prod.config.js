@@ -25,9 +25,9 @@ module.exports = {
             },
         ]
     },
-    externals: {
-        vue: 'Vue'
-    },
+    // externals: {
+    //     vue: 'Vue'
+    // },
     devtool: 'cheap-source-map',
     plugins: [],
 };
