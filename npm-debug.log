@@ -1,0 +1,115 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish', '.' ]
+2 info using npm@3.10.10
+3 info using node@v7.3.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/huangdong/Documents/workspace/pinch-slider',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/huangdong/.npm/pinch-slider/0.1.4/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/huangdong/.npm correctMkdir not in flight; initializing
+10 info lifecycle pinch-slider@0.1.4~prepublish: pinch-slider@0.1.4
+11 silly lifecycle pinch-slider@0.1.4~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/huangdong/.npm/pinch-slider/0.1.4/package.tgz',
+12 verbose tar pack   '/Users/huangdong/Documents/workspace/pinch-slider' ]
+13 verbose tarball /Users/huangdong/.npm/pinch-slider/0.1.4/package.tgz
+14 verbose folder /Users/huangdong/Documents/workspace/pinch-slider
+15 verbose addLocalTarball adding from inside cache /Users/huangdong/.npm/pinch-slider/0.1.4/package.tgz
+16 verbose correctMkdir /Users/huangdong/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd pinch-slider@0.1.4
+18 verbose afterAdd /Users/huangdong/.npm/pinch-slider/0.1.4/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/huangdong/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/huangdong/.npm/pinch-slider/0.1.4/package/package.json written
+21 silly publish { name: 'pinch-slider',
+21 silly publish   version: '0.1.4',
+21 silly publish   description: 'a slider for images which can be zoomed or pinched',
+21 silly publish   main: 'dist/pinchSlider.min.js',
+21 silly publish   scripts:
+21 silly publish    { dev: 'webpack-dev-server --devtool eval-source-map --progress --colors --hot --inline --config ./webpack.dev.config.js',
+21 silly publish      build: 'webpack -p --config ./webpack.dev.config.js --debug',
+21 silly publish      test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   keywords: [ 'vue', 'pinch', 'slider', 'swiper', 'zoom', 'touch' ],
+21 silly publish   author: { name: 'huangdong' },
+21 silly publish   license: 'MIT',
+21 silly publish   devDependencies:
+21 silly publish    { babel: '^6.5.2',
+21 silly publish      'babel-core': '^6.21.0',
+21 silly publish      'babel-loader': '^6.2.10',
+21 silly publish      'babel-preset-es2015': '^6.18.0',
+21 silly publish      'css-loader': '^0.26.1',
+21 silly publish      'extract-text-webpack-plugin': '^2.0.0-beta.4',
+21 silly publish      'style-loader': '^0.13.1',
+21 silly publish      'vue-template-compiler': '^2.3.2',
+21 silly publish      webpack: '^2.2.0-rc.3' },
+21 silly publish   readme: '# Overview\n\npinch-slider is a touch slider for which can be zoomed or pinched for vue.js.\n\n# Install\n\n```bash\n$ npm install pinch-slider\n```\n\n## Import using module\nImport components to your project:\n\n```JavaScript\nrequire(\'pinch-slider/dist/pinch-slider.css\');\n\n// in ES6 modules\nimport { PinchSlider, AlloyFinger, AlloyFingerVue } from \'pinch-slider\';\n\n// in CommonJS\nconst { PinchSlider, AlloyFinger, AlloyFingerVue } = require(\'pinch-slider\');\n\n// in Global variable\nconst { PinchSlider, AlloyFinger, AlloyFingerVue } = PinchSlider;\n```\n\nAnd register components:\n\n```javascript\nVue.use( AlloyFingerVue, { AlloyFinger: AlloyFinger }); // use AlloyFinger\'s plugin\nVue.component(\'pinch-slider\', PinchSlider);\n```\n\n## Import using script tag\n\n``` HTML\n<link rel="stylesheet" href="../node-modules/pinch-slider/dist/pinch-slider.css" charset="utf-8">\n<script src="../node-modules/pinch-slider/dist/pinch-slider.js"></script>\n```\n\n```JavaScript\nconst { PinchSlider, AlloyFinger, AlloyFingerVue } = PinchSlider;\nVue.use( AlloyFingerVue, { AlloyFinger: AlloyFinger }); // use AlloyFinger\'s plugin\n\nVue.component(\'pinchSlider\', PinchSlider);\nnew Vue({\n    el: \'.vue-wrapper\',\n    data: {\n        imgs: [\n            { src: \'https://cdn.pixabay.com/photo/2016/11/07/05/13/map-1804891__480.jpg\' },\n            { src: \'https://cdn.pixabay.com/photo/2016/12/09/08/09/texture-1893788__480.jpg\' },\n            {src:\'https://cdn.pixabay.com/photo/2016/10/20/18/35/sunrise-1756274__480.jpg\'}\n        ],\n        currentIndex: 0,\n        isFull:false\n    },\n    methods:{\n      showFull() {\n        this.isFull = true;\n      },\n      changePageNo(data) {\n            this.currentIndex = data.index;\n        }\n    }\n});\n```\n\n# Usage\n\nWork on a Vue instance:\n\n```HTML\n<div class="slider-container">\n      <pinch-slider :slides="imgs" :enable-pinch="false" :current-index=\'currentIndex\' @on-slide-change="changePageNo" @on-img-click="showFull">\n      </pinch-slider>\n</div>\n```\n\n```CSS\n.slider-container {\n        width: 100%;\n        height: 500px;\n        overflow: hidden;\n    }\n```\n\n# Options\n\nHere list Props and events on the component\n\n| Option | Description |\n| ----- | ----- |\n| slides | Array(default: []) image lists to be loaded. |\n| enablePinch | Boolean(default: true). |\n| currentIndex | Number (default:0) - current image showing |\n| srcKey | String (default:\'src\') - key for the slider object which contains the image. |\n| lazyLoad | Boolean (default:false) - if true, the images won\'t be downloaded until swiped near to them. |\n| @on-slide-change | function - trigged when the slider changes, passes current index for the callback |\n| @on-img-click | function - trigged when image be clicked, this event cancels bubble|\n\n\n# Develop\n\n```bash\n$ npm run build\n```\n\n# Many thanks to \n[AlloyFinger](https://github.com/AlloyTeam/AlloyFinger)\n\n# License\nMIT',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'da21418e441da7b0023414de7469ba34b0051e28',
+21 silly publish   _id: 'pinch-slider@0.1.4',
+21 silly publish   _shasum: '261690bbd1669a68554738b0db9c12348cf2d6b5',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name pinch-slider
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'pinch-slider',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'pinch-slider',
+26 silly mapToRegistry   name: 'pinch-slider',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/pinch-slider
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/huangdong/.npm/pinch-slider/0.1.4/package.tgz
+30 verbose request uri https://registry.npmjs.org/pinch-slider
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 6:35:20 PM
+33 verbose request using bearer token for auth
+34 verbose request id 9bce82ae9a84cb97
+35 http request PUT https://registry.npmjs.org/pinch-slider
+36 http 403 https://registry.npmjs.org/pinch-slider
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Wed, 03 May 2017 10:35:21 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-nrt6130-NRT',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1493807721.231691,VS0,VE520',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/huangdong/.npm/registry.npmjs.org/pinch-slider on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.1.4." : pinch-slider
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid pinch-slider
+43 verbose cwd /Users/huangdong/Documents/workspace/pinch-slider
+44 error Darwin 16.5.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "."
+46 error node v7.3.0
+47 error npm  v3.10.10
+48 error code E403
+49 error "You cannot publish over the previously published version 0.1.4." : pinch-slider
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
