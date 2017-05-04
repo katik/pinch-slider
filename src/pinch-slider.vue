@@ -19,8 +19,8 @@
     .ps-img-wrapper img{
         height:100%;
         width:100%;
-        -o-object-fit: cover;
-        object-fit: cover;
+        -o-object-fit: contain;
+        object-fit: contain;
     }
 
     .ps-full-mode-slider .ps-img-wrapper img{
@@ -57,7 +57,7 @@
 
 <script type="text/javascript">
     import To from './To.js';
-    
+
     //component begin
 
     export default {
