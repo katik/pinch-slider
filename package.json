@@ -1,6 +1,6 @@
 {
   "name": "pinch-slider",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "a slider for images which can be zoomed or pinched",
   "main": "dist/pinchSlider.min.js",
   "scripts": {
@@ -14,7 +14,8 @@
     "slider",
     "swiper",
     "zoom",
-    "touch"
+    "touch",
+    "缩放"
   ],
   "author": "huangdong",
   "license": "MIT",
