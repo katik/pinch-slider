@@ -124,8 +124,8 @@
     
     methods: {
         bindTransform: function(){
-            if(this.slides.length > 0 && (typeof this.$el.translateX) === "undefined"){
-                Transform(this.$el);
+            if(this.slides.length > 0){
+                (typeof this.$el.translateX) === "undefined" && Transform(this.$el);
                 setTimeout(function () {
                     this.slidesDoms = [].slice.call(this.$el.children);
 
