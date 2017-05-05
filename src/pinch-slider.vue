@@ -170,6 +170,13 @@
             this.curSlideImg.scaleX = this.curSlideImg.scaleY = 1;
             this.curSlideImg.translateX = 0;
 
+            //lastIndex img reset
+            if(this.slidesDoms[this.lastIndex - this.currentCacheStartIndex]){
+                let lastImg = this.slidesDoms[this.lastIndex - this.currentCacheStartIndex].childNodes[0];
+                lastImg.scaleX = lastImg.scaleY = 1;
+                lastImg.translateX = 0;
+            }
+
             //lazyLoad
             if(this.lazyLoad){
                 this._lazyLoad();
@@ -219,10 +226,10 @@
 
         swipe: function (evt) {
             //console.log('swipe' + evt.direction);
-            this.swipeFlag = true;
             if(this.currentScale > 1){
                 return;
             }
+            this.swipeFlag = true;
             if (evt.direction === 'Left') {
                 if (this.currentIndex < this.slides.length - 1) {
                     this.currentIndex++;
