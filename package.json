@@ -1,6 +1,6 @@
 {
   "name": "pinch-slider",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "a slider for images which can be zoomed or pinched",
   "main": "dist/pinchSlider.min.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "style-loader": "^0.13.1",
     "vue-template-compiler": "^2.3.2",
+    "babel-preset-stage-0": "^6.24.1",
     "webpack": "^2.2.0-rc.3",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2"
   }

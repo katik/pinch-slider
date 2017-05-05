@@ -1,5 +1,5 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["transform-runtime","transform-remove-strict-mode"]
+  "presets": [ "es2015", "stage-0"],
+  "plugins": ["transform-remove-strict-mode"]
 
 }
