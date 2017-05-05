@@ -92,6 +92,7 @@
             curSlideImg : {},
             lastIndex: -100,
             lazyLoadMap: [],
+            swipeFlag: false,
         }
     },
 
@@ -174,9 +175,10 @@
                 this._lazyLoad();
             }
 
-            if (step === "jump") {
+            if (!this.swipeFlag) {
                 this.$el['translateX'] = -windowWidth * (this.currentIndex - this.currentCacheStartIndex);
             } else {
+                this.swipeFlag = false;
                 new To(this.$el, 'translateX', -windowWidth * (this.currentIndex - this.currentCacheStartIndex), 500, this.ease, function () {});
             }
 
@@ -217,6 +219,7 @@
 
         swipe: function (evt) {
             //console.log('swipe' + evt.direction);
+            this.swipeFlag = true;
             if(this.currentScale > 1){
                 return;
             }
