@@ -31,11 +31,11 @@
 <body>
     <div class="vue-wrapper">
         <div class="slider-container" style="">
-            <pinch-slider :slides="imgs" :enable-pinch="false" :current-index='currentIndex' @on-slide-change="changePageNo" @on-img-click="showFull">
+            <pinch-slider :slides="imgs" :enable-pinch="false" :current-index='currentIndex' :lazy-load='true' @on-slide-change="changePageNo" @on-img-click="showFull">
             </pinch-slider>
         </div>
         <div class="full-screen" v-show='isFull' @click='isFull=false'>
-            <pinch-slider :slides="imgs" class="full-mode" :current-index="currentIndex" @on-slide-change="changePageNo">
+            <pinch-slider :slides="imgs" class="full-mode" :current-index="currentIndex" :lazy-load='true' @on-slide-change="changePageNo">
             </pinch-slider>
         </div>
     </div>

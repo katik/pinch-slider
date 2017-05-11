@@ -21,6 +21,13 @@
         width:100%;
         -o-object-fit: contain;
         object-fit: contain;
+        background-size: 100%;
+        background-size: 100vw;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("../assets/images/loading.gif");
+        background-color: black;
+        min-height: 2rem;
     }
 
     .ps-full-mode-slider .ps-img-wrapper img{
@@ -196,9 +203,6 @@
         _lazyLoad: function () {
             loadImageSrc(this.currentIndex - this.currentCacheStartIndex,this);
             //load next and previouse
-            loadImageSrc(this.currentIndex - this.currentCacheStartIndex + 1,this);
-            loadImageSrc(this.currentIndex - this.currentCacheStartIndex - 1,this);
-
             function loadImageSrc(index,that) {
                 if(!that.slidesDoms[index] || isNaN(index)){
                     return;
@@ -206,9 +210,29 @@
                 if(that.lazyLoadMap && that.lazyLoadMap[index]){
                     return false;
                 }
-                that.slidesDoms[index].childNodes[0].setAttribute('src', that.slides[index + that.currentCacheStartIndex][that.srcAtr]);
-                that.lazyLoadMap[index] = 1;
+                preloadImage(that.slides[index + that.currentCacheStartIndex][that.srcAtr], function() {
+                    that.slidesDoms[index].childNodes[0].setAttribute('src', that.slides[index + that.currentCacheStartIndex][that.srcAtr]);
+                    that.lazyLoadMap[index] = 1;
+                });
+
                 return true;
+            }
+
+            function preloadImage(imgSrc, callback){
+                var objImagePreloader = new Image();
+
+                objImagePreloader.src = imgSrc;
+                if(objImagePreloader.complete){
+                    callback();
+                    objImagePreloader.onload=function(){};
+                }
+                else{
+                    objImagePreloader.onload = function() {
+                        callback();
+                        //clear onLoad, IE behaves irratically with animated gifs otherwise
+                        objImagePreloader.onload=function(){};
+                    }
+                }
             }
         },
 
