@@ -152,6 +152,11 @@
             }
         },
 
+        resetCurrentImg() {
+            this.curSlideImg.scaleX = this.curSlideImg.scaleY = 1;
+            this.curSlideImg.translateX = 0;
+        },
+
         processCurrentIndexChange: function(){
             if (this.currentIndex < 0) return;
 
@@ -174,8 +179,8 @@
             if(this.slidesDoms[this.currentIndex - this.currentCacheStartIndex]){
                 this.curSlideImg = this.slidesDoms[this.currentIndex - this.currentCacheStartIndex].childNodes[0];
             }
-            this.curSlideImg.scaleX = this.curSlideImg.scaleY = 1;
-            this.curSlideImg.translateX = 0;
+            
+            this.resetCurrentImg();
 
             //lastIndex img reset
             if(this.slidesDoms[this.lastIndex - this.currentCacheStartIndex]){
