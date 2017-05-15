@@ -95,6 +95,7 @@ Here list Props and events on the component
 | currentIndex | Number (default:0) - current image showing |
 | srcKey | String (default:'src') - key for the slider object which contains the image. |
 | lazyLoad | Boolean (default:false) - if true, the images won't be downloaded until swiped near to them. |
+| loadingImgUrl | String (default:'') - if lazyLoad, the loading image shown before the real image downloaded. |
 | @on-slide-change | function - trigged when the slider changes, passes current index for the callback |
 | @on-img-click | function - trigged when image be clicked, this event cancels bubble|
 
