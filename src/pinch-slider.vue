@@ -49,7 +49,7 @@
          v-finger:touch-cancel="touchCancel">
         <div v-for="(slide,index) in domSlides" class="ps-img-wrapper">
             <img
-                 :src="(index === 0 || !lazyLoad) ? slide[srcAtr]: loading-img-url"
+                 :src="(index === 0 || !lazyLoad) ? slide[srcAtr]: loadingImgUrl"
                  v-finger:multipoint-start="multipointStart"
                  v-finger:multipoint-end="multipointEnd"
                  v-finger:pinch="pinch"
