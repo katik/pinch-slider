@@ -1,6 +1,6 @@
 {
   "name": "pinch-slider",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "a slider for images which can be zoomed or pinched",
   "main": "dist/pinchSlider.min.js",
   "scripts": {

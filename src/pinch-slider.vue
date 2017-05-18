@@ -297,16 +297,25 @@
             },
 
             pinch: function (evt) {
+                if(!this.multipointFlag){
+                    this.multipointFlag = setTimeout(() => {
+                        this.multipointFlag = 0;
+                    },300);
+                }else{
+                    clearTimeout(this.multipointFlag);
+                    this.multipointFlag = setTimeout(() => {
+                        this.multipointFlag = 0;
+                    },300);
+                }
+
                 if(!this.enablePinch){
                     return;
                 }
 
-                this.curSlideImg.translateX = 0;
                 if(this.currentScale * evt.scale < 1){
                     this.curSlideImg.width = window.innerWidth;
                     this.curSlideImg.height = window.innerWidth * this.ratio;
-
-                }else{
+                }else if(this.currentScale * evt.scale < 10){
                     this.curSlideImg.width = this.currentScale * evt.scale * window.innerWidth;
                     this.curSlideImg.height = this.currentScale * evt.scale * window.innerWidth * this.ratio;
                 }
@@ -347,7 +356,6 @@
 
             multipointEnd: function () {
                 this.currentScale = this.curSlideImg.width/window.innerWidth;
-                //console.log('onMultipointEnd');
             },
 
             doubleTap: function () {
@@ -366,16 +374,20 @@
             },
 
             singleTap: function (evt) {
-                //console.log('onSingleTap');
-                evt.cancelBubble = true;
-                evt.preventDefault();
-                this.$emit('on-img-tap');
+                if(!this.multipointFlag) {
+                    evt.cancelBubble = true;
+                    evt.preventDefault();
+                    this.$emit('on-img-tap');
+                }
             },
+
             click: function (evt) {
                 //console.log('click');
-                this.$emit('on-img-click');
-                evt.cancelBubble = true;
-                evt.preventDefault();
+                if(!this.multipointFlag) {
+                    this.$emit('on-img-click');
+                    evt.cancelBubble = true;
+                    evt.preventDefault();
+                }
             },
             touchStart: function () {
                 //console.log('onTouchStart');
