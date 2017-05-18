@@ -28,7 +28,7 @@
         background-size: 100vw;
         background-position: center center;
         background-repeat: no-repeat;
-        background-image: url("../assets/images/loading.gif");
+        /*background-image: url("../assets/images/loading.gif");*/
         background-color: black;
         min-height: 2rem;
         position: absolute;
