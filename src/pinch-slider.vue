@@ -300,12 +300,12 @@
                 if(!this.multipointFlag){
                     this.multipointFlag = setTimeout(() => {
                         this.multipointFlag = 0;
-                    },300);
+                    },500);
                 }else{
                     clearTimeout(this.multipointFlag);
                     this.multipointFlag = setTimeout(() => {
                         this.multipointFlag = 0;
-                    },300);
+                    },500);
                 }
 
                 if(!this.enablePinch){
