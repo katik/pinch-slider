@@ -336,7 +336,7 @@
                 var rangeY = this.currentScale * window.innerWidth * this.ratio/2 -  window.innerHeight / 2;
                 if((this.curSlideImg.translateX + evt.deltaX > range || this.curSlideImg.translateX + evt.deltaX < -range)){
                     //若此时放大状态，且滑倒边界，则用户滑动距离很大才会出发滑倒下一张
-                    if (this.currentScale > 1 && Math.abs(evt.deltaX) < 25) {
+                    if (this.currentScale >= 1 && Math.abs(evt.deltaX) < this.currentScale * 12) {
                         //
                     }else{
                         this.curSlideImg.width = window.innerWidth;
